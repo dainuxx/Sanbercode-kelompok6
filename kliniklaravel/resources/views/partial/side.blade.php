@@ -27,14 +27,14 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="../widgets.html" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
+          <a href="/dashboard" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
             </p>
           </a>
         </li><li class="nav-item">
-          <a href="../widgets.html" class="nav-link">
+          <a href="/dokter" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Dokter
@@ -42,7 +42,7 @@
           </a>
         </li>
         <li class="nav-item">
-             <a href="../widgets.html" class="nav-link">
+             <a href="/pasien" class="nav-link">
                <i class="nav-icon fas fa-th"></i>
                <p>
                 Pasien
@@ -50,7 +50,7 @@
              </a>
            </li>
            <li class="nav-item">
-             <a href="../widgets.html" class="nav-link">
+             <a href="/janji" class="nav-link">
                <i class="nav-icon fas fa-th"></i>
                <p>
                  janji
