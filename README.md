@@ -15,8 +15,5 @@ Website klinik
 ## ERD
 ![Gambar ERD](ERD/ERD_Klinik.png))
 
-## Link
--- Not Available# Sanbercode-kelompok6
 
-#ERD
-![Gambar ERD](ERD/ERD_Klinik.png)
+
