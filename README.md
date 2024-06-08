@@ -7,7 +7,7 @@ SanberCode X Universitas Lancang Kuning
 1. Muhammad ibnu sabil
 2. vito stevanus hutauruk
 3. Adri Yatniel Manalu
-4. Muhammad Nur Iman
+4. Muhamad Nur Iman
 
 ## Tema Project
 Website Klinik
