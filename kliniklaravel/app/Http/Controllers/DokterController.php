@@ -1,69 +1,112 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\Dokter;
 use Illuminate\Http\Request;
+use App\Models\Dokter;
 
-class DokterController extends Controller
+class dokterController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $dokters = Dokter::all();
-        return view('dokter.index', compact('dokters'));
+        $dokter = dokter::all();
+        return view('dokter.index', ['dokter' => $dokter]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('dokter.create');
+        return view('dokter.create'); 
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        // Validasi data
-        $validatedData = $request->validate([
-            'nama' => 'required|string|max:255',
-            'spesialis' => 'required|string|max:255',
-            'telepon' => 'required|string|max:255',
+        $request->validate([
+    		
+            'nama' => 'required',
+            'spesialis' => 'required',
+            'telepon' => 'required',
+        ],
+        [
+            
+            'nama.required' => 'nama harus di masukkan  minimal 5 huruf',
+            'spesialis.required' => 'spesialis harus di masukkan  minimal 7 huruf',
+            'telepon.required' => 'masukan nomor telepon',
+            
+    	]);
+
+        $dokter = new dokter;
+        $dokter->nama = $request->input('nama');
+        $dokter->spesialis = $request->input('spesialis');
+        $dokter->telepon = $request->input('telepon');
+ 
+        $dokter->save();
+    
+        return redirect('/dokter');
+
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $dokter = dokter::find($id);
+        return view('dokter.app', ['dokter' => $dokter]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $dokter = dokter::find($id);
+        return view('dokter.edit', ['dokter' => $dokter]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'spesialis' => 'required',
+            'telepon' => 'required',
+        ]
+        // ,
+        // [
+        //     'nama.required' => 'nama harus di masukkan  minimal 5 huruf',
+        //     'spesialis.required' => 'spesialis   harus di masukkan  minimal 7 huruf',
+        //     'telepon.required' => 'masukan nomor telepon',
+            
+    	// ]
+    );
+
+        dokter::where('id', $id)
+        -> update([
+            'nama'=>$request->input('nama'),
+            'spesialis' => $request->input('spesialis'),
+            'telepon' => $request->input('telepon'),
         ]);
 
-        // Simpan data
-        Dokter::create($validatedData);
-
-        // Redirect dengan pesan sukses
-        return redirect()->route('dokter.index')->with('success', 'Dokter berhasil ditambahkan.');
+        return redirect('/dokter');
     }
 
-    public function show(Dokter $dokter)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
     {
-        return view('dokter.show', compact('dokter'));
-    }
-
-    public function edit(Dokter $dokter)
-    {
-        return view('dokter.edit', compact('dokter'));
-    }
-
-    public function update(Request $request, Dokter $dokter)
-    {
-        // Validasi data
-        $validatedData = $request->validate([
-            'nama' => 'required|string|max:255',
-            'spesialis' => 'required|string|max:255',
-            'telepon' => 'required|string|max:255',
-        ]);
-
-        // Update data
-        $dokter->update($validatedData);
-
-        // Redirect dengan pesan sukses
-        return redirect()->route('dokter.index')->with('success', 'Dokter berhasil diupdate.');
-    }
-
-    public function destroy(Dokter $dokter)
-    {
-        $dokter->delete();
-        return redirect()->route('dokter.index')->with('success', 'Dokter berhasil dihapus.');
+        dokter::where('id', $id)->delete();
+        return redirect('/dokter');
     }
 }
-
-

@@ -1,24 +1,40 @@
-@extends('layouts.app')
+@extends('layout.master')
+
+@section('judul')
+Halaman Edit dokter
+@endsection
 
 @section('content')
-<div class="container">
-    <h1>Edit Dokter</h1>
-    <form action="{{ route('dokter.update', $dokter->id) }}" method="POST">
+<a href="/dokter" class="btn btn-primary mb-3">Kembali</a>
+<div>
+    <h2>Edit Data dokter {{$dokter->id}}</h2>
+    <form action="/dokter/{{$dokter->id}}" method="POST">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
         @csrf
         @method('PUT')
-        <div class="mb-3">
-            <label for="nama" class="form-label">Nama</label>
-            <input type="text" class="form-control" id="nama" name="nama" value="{{ $dokter->nama }}" required>
+        <div class="form-group">
+       
+        <label>nama:</label>
+        <input type="text" name="nama" class="form-control" value="{{$dokter->nama}}">
+        
+        <label>spesialis</label>
+        <textarea name="spesialis" rows="10" cols="30" class="form-control">{{$dokter->spesialis}}</textarea>
+
+        <label>telefon:</label>
+        <input type="number" name="telepon" class="form-control" value="{{$dokter->telepon}}">
+       
         </div>
-        <div class="mb-3">
-            <label for="spesialis" class="form-label">Spesialis</label>
-            <input type="text" class="form-control" id="spesialis" name="spesialis" value="{{ $dokter->spesialis }}" required>
-        </div>
-        <div class="mb-3">
-            <label for="telepon" class="form-label">Telepon</label>
-            <input type="text" class="form-control" id="telepon" name="telepon" value="{{ $dokter->telepon }}" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
     </form>
 </div>
+
 @endsection
