@@ -6,11 +6,11 @@ SanberCode X Universitas Lancang Kuning
 ## Anggota Kelompok
 1. Muhammad ibnu sabil
 2. vito stevanus hutauruk
-3. mohammad nur iman
-4. adri yatniel manalu
+3. Adri Yatniel Manalu
+4. mohammad nur iman
 
 ## Tema Project
-Website klinik
+Website Klinik
 
 ## ERD
 ![Gambar ERD](ERD/ERD_Klinik.png))
