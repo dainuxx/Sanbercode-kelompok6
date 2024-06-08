@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\JanjiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,10 @@ Route::get('/', function () {
 });
 
 Route::resource('dokter', DokterController::class);
+
+//crud janji
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::resource('janji', JanjiController::class);

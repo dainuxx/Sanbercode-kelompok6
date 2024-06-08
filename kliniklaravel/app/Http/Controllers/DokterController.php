@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dokter;
 
-class dokterController extends Controller
+class DokterController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $dokter = dokter::all();
+        $dokter = Dokter::all();
         return view('dokter.index', ['dokter' => $dokter]);
     }
 
