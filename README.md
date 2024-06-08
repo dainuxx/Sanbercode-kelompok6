@@ -4,10 +4,10 @@ SanberCode X Universitas Lancang Kuning
 ## Kelompok 6
 
 ## Anggota Kelompok
-1. Muhammad ibnu sabil
-2. vito stevanus hutauruk
-3. Adri Yatniel Manalu
-4. Muhamad Nur Iman
+1. Muhammad ibnu sabil (dainuxx)
+2. vito stevanus Hutauruk(vitostevanus)
+3. Adri Yatniel Manalu(maringoding)
+4. Muhamad Nur Iman(MuhamadNurIman2024)
 
 ## Tema Project
 Website Klinik
