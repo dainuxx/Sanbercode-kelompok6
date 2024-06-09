@@ -13,7 +13,8 @@ SanberCode X Universitas Lancang Kuning
 Website Klinik
 
 ## ERD
-![Gambar ERD](ERD/ERD_Klinik.png))
+![Gambar ERD](ERD/erd_baru.jpeg))
 
-
+## Link Video
+Link Demo : https://drive.google.com/drive/folders/1nswhuuqPV8ECU-TYpmfx0tqs4swyVJ2t
 

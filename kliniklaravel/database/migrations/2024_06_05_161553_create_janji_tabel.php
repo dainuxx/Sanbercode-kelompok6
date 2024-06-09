@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJanjiTabel extends Migration
+class CreateJanjiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateJanjiTabel extends Migration
         if (!Schema::hasTable('janji')) {
             Schema::create('janji', function (Blueprint $table) {
                 $table->id();
-                $table->string('jadwal');
+                $table->dateTime('jadwal')->default(DB::raw('CURRENT_TIMESTAMP'));
                 $table->unsignedBigInteger('dokter_id');
                 $table->unsignedBigInteger('pasien_id');
                 $table->timestamps();

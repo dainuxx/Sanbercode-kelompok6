@@ -29,18 +29,21 @@ class JanjiController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi request
         $request->validate([
-    		// Sesuaikan validasi dengan kebutuhan Janji
-        ],
-        [
-            // Sesuaikan pesan error dengan kebutuhan Janji
-    	]);
+            // Aturan validasi
+        ]);
 
-        $janji = new Janji; 
-        // Sesuaikan pengisian data dengan kebutuhan Janji
-
+        // Buat entri baru di tabel Janji
+        $janji = new Janji();
+        $janji->jadwal = now();
+        $janji->dokter_id = $request->input('dokter_id'); // Mendapatkan nilai dokter_id dari form
+        $janji->pasien_id = $request->input('pasien_id'); // Mendapatkan nilai pasien_id dari form
+        $janji->created_at = now();
+        $janji->updated_at = now();
         $janji->save();
-    
+
+        // Redirect atau respons sesuai kebutuhan Anda
         return redirect('/janji');
     }
 
