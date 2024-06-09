@@ -39,7 +39,7 @@ class PasienController extends Controller
             'nama.required' => 'Nama harus di isi minimal 5 huruf',
             'umur.required' => 'Masukan umur dalam angka',
             'alamat.required' => 'Tambahkan alamat',
-            'telepon.required' => 'masukan nomoe telepon',
+            'telepon.required' => 'masukan nomor telepon',
             
     	]);
 

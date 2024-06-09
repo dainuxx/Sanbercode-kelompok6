@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('pasien', function (Blueprint $table) {
             $table->id();
-            $table->string("nama");
-            $table->integer("umur");
-            $table->string("alamat");
-            $table->string('telepon')->change();
+            $table->string('nama');
+            $table->integer('umur');
+            $table->string('alamat');
+            $table->string('telepon'); // Correctly add the telepon column
             $table->timestamps();
         });
     }
