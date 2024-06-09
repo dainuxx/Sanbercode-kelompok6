@@ -4,31 +4,33 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateJanjiTabel extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('janji', function (Blueprint $table) {
-            $table->id();
-            $table->string('jadwal', 255); // Batas panjang kolom 'jadwal' ditambahkan
-            $table->unsignedBigInteger("dokter_id");
-            $table->unsignedBigInteger("pasien_id");
-            $table->timestamps();
-
-            // Penetapan kunci asing setelah kolom 'dokter_id' dan 'pasien_id'
-            $table->foreign('dokter_id')->references('id')->on('dokter')->onDelete('cascade');
-            $table->foreign('pasien_id')->references('id')->on('pasien')->onDelete('cascade');
-        });
+        if (!Schema::hasTable('janji')) {
+            Schema::create('janji', function (Blueprint $table) {
+                $table->id();
+                $table->string('jadwal');
+                $table->unsignedBigInteger('dokter_id');
+                $table->unsignedBigInteger('pasien_id');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('janji');
     }
-};
+}
